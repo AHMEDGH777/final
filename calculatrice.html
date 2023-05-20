@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TP2 Ex2</title>
+    <style>
+        #calc {
+            width: 500px;
+            margin: 0 auto;
+            padding: 5px;
+            box-shadow: 0 0 5px rgb(47, 47, 50);
+            border-radius: 5px;
+        }
+
+        #calc .ligne {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-column-gap: 2px;
+            height: 50px;
+            margin-bottom: 2px;
+        }
+
+        #result {
+            width: 100%;
+            height: 50px;
+            margin-top: 5px;
+            margin-bottom: 5px; 
+            border:  2px solid rgb(167, 167, 167);
+            border-radius: 2px;
+            padding: 15px 0 0 0;
+        }
+
+        #eq {
+            font-size: 30px;
+            color: #222;
+            float: right;
+            margin-right: 20px;
+        }
+
+        .bouton {
+            background-color: #D6D6D6;
+            border: 1px solid #C6C6C6;
+            color: #444;
+            cursor:pointer;
+            text-align:center;
+            border-radius:3px;
+            font-size: 20px;
+        }
+        
+        .egal{
+            color: #FEFEFE;
+            background-color: #4D90FE;
+            border: 1px solid #4D90FE;
+        }
+
+        .chiffre{
+            background-color: #F5F5F5;
+        }
+
+        .bouton:hover {
+            box-shadow: 0px 1px 4px 0px rgb(0,0,0,0.2)
+        }
+
+    </style>
+    
+</head>
+<body>
+    <div id="calc">
+        <div>
+           
+            <div id="result">
+                <span id="eq"></span>
+            </div>
+        </div>
+        <div class="ligne">
+            <input  type="button" class="bouton"  value="(" onclick="ajouter('(')"    >
+            <input  type="button" class="bouton"  value=")" onclick="ajouter(')')" > 
+            <input  type="button" class="bouton" value="%" onclick="ajouter('%')" > 
+            <input  type="button" class="bouton" value="CE" onclick="effacer()" >     
+        </div>
+        <div class="ligne">
+            <input  type="button" class="bouton chiffre"  value="7" onclick="ajouter('7')" >
+            <input  type="button" class="bouton chiffre"  value="8" onclick="ajouter('8')">
+            <input  type="button" class="bouton chiffre"  value="9" onclick="ajouter('9')" >
+            <input  type="button" class="bouton" value="÷" onclick="ajouter('/')" >     
+        </div>
+        <div class="ligne">
+            <input  type="button" class="bouton chiffre"  value="4" onclick="ajouter('4')" >
+            <input  type="button" class="bouton chiffre"  value="5" onclick="ajouter('5')">
+            <input  type="button" class="bouton chiffre" value="6" onclick="ajouter('6')">
+            <input  type="button" class="bouton"  value="x" onclick="ajouter('*')"  >     
+        </div>
+        <div class="ligne">
+            <input  type="button" class="bouton chiffre"  value="1" onclick="ajouter('1')">
+            <input  type="button" class="bouton chiffre"  value="2" onclick="ajouter('2')" >
+            <input  type="button" class="bouton chiffre"  value="3" onclick="ajouter('3') ">
+            <input  type="button" class="bouton" value="-" onclick="ajouter('-') ">     
+        </div>
+        <div class="ligne">
+            <input  type="button" class="bouton chiffre"  value="0" onclick="ajouter('0')"  >
+            <input  type="button" class="bouton"  value="." onclick="ajouter('.')">
+            <input  type="button"  class="egal bouton" value="=" onclick="calcul('=')" >
+            <input  type="button" class="bouton"  value="+" onclick="ajouter('+')">     
+        </div>
+    </div>
+    <script>
+        function ajouter(c){
+            document.getElementById('eq').innerHTML+=c;
+        }
+        function effacer(){
+            document.getElementById('eq').innerHTML="";
+        }
+        function calcul(){
+            let res=document.getElementById('eq');
+            res.innerHTML=eval(res.innerText);
+            
+        }
+    </script>
+   
+        
+</body>
+</html>
